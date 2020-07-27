@@ -1,0 +1,16 @@
+body{
+    height: 100vh;
+    display: flex;
+     /* justify-content: space-evenly */
+    /* align-items: center; */ 
+    background-color: cadetblue;
+    color: rgb(19, 29, 15);
+    background-image: url('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F-SMTdgtjABE8%2FUfJj0Lz2HsI%2FAAAAAAAAXcM%2FCB7SuJipGqE%2Fs1600%2FGrass%2BWallpapers.jpg&f=1&nofb=1')
+
+}
+
+.cotainer{
+    display: flex;
+    justify-content: space-evenly;
+}
+
