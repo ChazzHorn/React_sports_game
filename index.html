@@ -21,29 +21,29 @@
                     this.state ={
                         name: props.name,
                         logo: props.logo,
-                        shotsCount: 0,               
+                        shotsCount: 0,
                         scoreCount: 0,
                         shotPercentage: 0
                     }
-                    
+
                     this.scoreSound = new Audio('./assets/hockeystick.mp3')
                     this.shotSound = new Audio('./assets/soccer.mp3')
-                    
+
 
                 }
 
-                
+
                     Shoot = (event) => {
-                        
+
                         this.setState((currentState) =>{
-                           
+
                          let newShotsCount = currentState.shotsCount + 1
-                         let newScoreCount = currentState.scoreCount 
+                         let newScoreCount = currentState.scoreCount
                          let newStat = currentState.shotPercentage
-                         
+
 
                         if ( Math.round(Math.random()) === 1){
-                            newScoreCount ++ 
+                            newScoreCount ++
                             this.scoreSound.play()
                          }else{
                             this.shotSound.play()
@@ -61,18 +61,22 @@
                          }
                 })
                 }
-                    
+
 
                 render(){
                     return(
-                        <div className='container'>
+                        <div>
+
                         <h1>{this.props.name}</h1>
+
+                        <img src={this.state.logo}/>
                         <span>Number Of Shots Taken: {this.state.shotsCount}</span>
-                        
+
                         <button onClick={this.Shoot}>Shoot</button>
                         <br/>
                         <span>Score: {this.state.scoreCount}</span>
                         <h5>Shot Percentage: {this.state.stat}</h5>
+
                         </div>
 
                     )
@@ -85,10 +89,12 @@
             class Game extends React.Component{
                 constructor(props){
                     super(props)
-            
-                    this.state={
-                        venue: props.venue
 
+                    this.state={
+                        venue: props.venue,
+                        homeTeam: props.homeTeam,
+                        visitingTeam: props.visitingTeam,
+                        logo: props.logo
                     }
 
                 }
@@ -96,9 +102,15 @@
                 render(){
                     return(
                         <div>
+
+                        <div>
                         <h1> Welcome to {this.state.venue} </h1>
-                        <Team name="Home Team" logo=""/>
-                        <Team name="Visiting Team" logo=""/>
+
+                        <Team name={this.state.homeTeam} logo={this.state.logo}/>
+
+                        <Team name={this.state.visitingTeam} logo={this.state.logo}/>
+                        </div>
+
                         </div>
                     )
                 }
@@ -110,15 +122,18 @@
                 constructor(props){
                     super(props)
 
-                this.state 
-                
+                this.state
+
                 }
                 render(){
                     return(
                         <div>
-                        <Game venue="the Grand Finals of Soccorific Fun!"/>
-                        <Game venue="Round-a-bout!"/>
-                        
+
+
+                        <Game venue="the Grand Finals of Soccorific Fun!" homeTeam="Team 1" visitingTeam="Team 2" logo="" />
+
+                        <Game venue="Round-a-bout Rousi Arena!" homeTeam="Team 3" visitingTeam="Team 4" logo="" />
+
                         </div>
                     )
 
@@ -128,8 +143,8 @@
 
 
         ReactDOM.render(<App/>, document.getElementById('root'))
-        
+
     </script>
-    
+
 </body>
 </html>
